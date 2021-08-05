@@ -1,0 +1,42 @@
+### GET RANDOM TRIVIA QUESTION
+
+@baseUrl = https://opentdb.com/api.php?
+
+# SPORT
+GET {{baseUrl}}amount=1&category=21&difficulty=easy&type=multiple
+
+###
+
+GET {{baseUrl}}amount=1&category=21&difficulty=easy&type=multiple
+
+###
+GET {{baseUrl}}amount=1&category=21&difficulty=hard&type=multiple
+
+###
+
+#GENERAL KNOWLEDGE
+
+GET {{baseUrl}}amount=1&category=9&difficulty=easy&type=multiple
+
+###
+
+GET {{baseUrl}}amount=1&category=9&difficulty=medium&type=multiple
+
+###
+
+GET {{baseUrl}}amount=1&category=9&difficulty=hard&type=multiple
+
+###
+
+#FILMS
+
+GET {{baseUrl}}amount=1&category=11&difficulty=easy&type=multiple
+
+###
+
+GET {{baseUrl}}amount=1&category=11&difficulty=easy&type=multiple
+
+
+###
+
+GET {{baseUrl}}amount=1&category=11&difficulty=hard&type=multiple
