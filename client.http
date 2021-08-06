@@ -2,19 +2,38 @@
 
 @baseUrl = https://opentdb.com/api.php?
 
+GET https://opentdb.com/api.php?amount=10&type=multiple
+
 # SPORT
-GET {{baseUrl}}amount=1&category=21&difficulty=easy&type=multiple
+
+# EASY
+###
+GET {{baseUrl}}amount=1&category=21&difficulty=easy&type=multiple&encode=base64
 
 ###
-
 GET {{baseUrl}}amount=1&category=21&difficulty=easy&type=multiple
+
+# MEDIUM
+###
+GET {{baseUrl}}amount=1&category=21&difficulty=medium&type=multiple&encode=base64
+
+###
+GET {{baseUrl}}amount=1&category=21&difficulty=medium&type=multiple
+
+
+# HARD
+###
+GET {{baseUrl}}amount=1&category=21&difficulty=hard&type=multiple&encode=base64
 
 ###
 GET {{baseUrl}}amount=1&category=21&difficulty=hard&type=multiple
 
-###
-
 #GENERAL KNOWLEDGE
+
+#EASY
+###
+###
+###
 
 GET {{baseUrl}}amount=1&category=9&difficulty=easy&type=multiple
 
