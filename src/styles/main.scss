@@ -9,7 +9,7 @@
   display: none;
 }
 
-.score {
+#score {
   color: white;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .section {
-  background-image: url('https://previews.123rf.com/images/dgolbay/dgolbay1902/dgolbay190200100/117523494-wood-table-surface-top-view-natural-wood-patterns-top-view-.jpg');
+  background-image: url('https://princeofpeacebeulah.org/wp-content/uploads/2016/04/Wood_Background.png');
 }
 
 .qwrapper {
@@ -46,13 +46,25 @@ button {
   overflow-wrap: break-word;
 }
 
+.hero {
+  background-color: black;
+  align-content: center;
+}
+
 .hero-body {
   background-image: url('https://activecollab.com/upload/blog/301/cover.png');
-  background-size: cover;
+  background-position: center;
+  // background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   height: 100vh;
+  align-content: center;
+
+  
 
   p {
     color: #ffe6a3;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
+
 }
