@@ -3,6 +3,8 @@ import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import Home from './components/Home'
+import QuizCard from './components/QuizCard'
+import Quiz from './components/Quiz'
 
 function App() {
   const [data, setData] = React.useState(null)
@@ -30,8 +32,19 @@ function App() {
       setData(refData)
     }
     getData()
-    
   }, [])
+
+  const quest = !isLoading && data.map(quest => {
+    const question = quest.questions
+    return question
+  })
+  console.log(quest)
+
+  const answer = !isLoading && data.map(ans => {
+    return ans.options
+  })
+  console.log('this is', answer)
+  
   
   // *** Data Decoding Function
   function decodeData(str) {
@@ -41,24 +54,7 @@ function App() {
   }
 
 
-  const handleAnswer = (e) => {
-    const correctAns = data.map(ans => (ans.answer))
-    if (correctAns.includes(e.target.textContent)) {
-      setScore(score + 10)
-      e.target.classList.add('correct')
-    } else {
-      setScore(score - 5)
-      e.target.classList.add('incorrect')
-    }
-  }
-
-
-  const handleMoreQs = () => {
-    location.href = '/quiz'
-  }
-  const handleHome = () => {
-    location.href = '/'
-  }
+  
 
   return (
     <BrowserRouter>
@@ -66,27 +62,13 @@ function App() {
         <Home />   
       </Route>
       <Route exact path="/quiz">
-        <section className="section">
-          <div className="container is-max-desktop">
-            <div>
-              <h2 id="score" className="title">Score: {score}</h2>
-            </div>
-            {!isLoading && data.map(card => (
-              <div key={card.id} className="qwrapper container">
-                <h2 className="title">{card.questions}</h2>
-                <div>
-                  <button className="button" onClick={handleAnswer}>{card.options[0]}</button>
-                  <button className="button" onClick={handleAnswer}>{card.options[1]}</button>
-                  <button className="button" onClick={handleAnswer}>{card.options[2]}</button>
-                  <button className="button" onClick={handleAnswer}>{card.options[3]}</button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <h2 id="score" className="title">Score: {score}</h2>
-          <button className="button" onClick={handleMoreQs}>Play Again!</button>
-          <button className="button" onClick={handleHome}>Take me home!</button>
-        </section>
+        <Quiz data = {data} setData={setData}/>
+        <QuizCard 
+          isLoading = {isLoading}
+          data = {data}
+          score = {score} 
+          setScore = {setScore}
+        /> 
       </Route>
     </BrowserRouter>
   )
