@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import QuizCard from './QuizCard'
 
-function Quiz ({ data, setData, score, setScore, isLoading }) {
+function Quiz ({ data, setData, isLoading }) {
   const [options, setOptions] = React.useState(null)
   const [currQuest, setCurrQuest] = React.useState(0)
 
@@ -24,15 +24,11 @@ function Quiz ({ data, setData, score, setScore, isLoading }) {
   return (
     <section className="section">
       <div className="container is-max-desktop">
-        <div>
-          <h2 id="score" className="title">Score: {score}</h2>
-        </div>
         <QuizCard 
           isLoading = {isLoading}
           data = {data}
           setData = {setData}
-          score = {score} 
-          setScore = {setScore}/>
+        />
       </div>
       <button className="button" onClick={handleMoreQs}>Play Again!</button>
       <button className="button" onClick={handleHome}>Take me home!</button>

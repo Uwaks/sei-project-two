@@ -3,12 +3,10 @@ import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import Home from './components/Home'
-import QuizCard from './components/QuizCard'
 import Quiz from './components/Quiz'
 
 function App() {
   const [data, setData] = React.useState(null)
-  const [score, setScore] = React.useState(0)
   const isLoading = !data
   
 
@@ -33,17 +31,6 @@ function App() {
     }
     getData()
   }, [])
-
-  const quest = !isLoading && data.map(quest => {
-    const question = quest.questions
-    return question
-  })
-  console.log(quest)
-
-  const answer = !isLoading && data.map(ans => {
-    return ans.options
-  })
-  console.log('this is', answer)
   
   
   // *** Data Decoding Function
@@ -54,8 +41,6 @@ function App() {
   }
 
 
-  
-
   return (
     <BrowserRouter>
       <Route exact path="/">
@@ -63,12 +48,6 @@ function App() {
       </Route>
       <Route exact path="/quiz">
         <Quiz data = {data} setData={setData}/>
-        <QuizCard 
-          isLoading = {isLoading}
-          data = {data}
-          score = {score} 
-          setScore = {setScore}
-        /> 
       </Route>
     </BrowserRouter>
   )
