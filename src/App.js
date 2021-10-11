@@ -1,18 +1,17 @@
-import axios from 'axios'
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import Home from './components/Home'
 import Quiz from './components/Quiz'
+import { getQuizData } from './lib/api'
 
 function App() {
   const [data, setData] = React.useState(null)
-  const isLoading = !data
   
 
   React.useEffect(() => {
     const getData = async () => {
-      const response = await axios.get('https://opentdb.com/api.php?amount=10&type=multiple') 
+      const response = await getQuizData() 
       const rawData = response.data.results
       const refData = rawData.map((item, index) => {
         const answer = decodeData(item.correct_answer)
